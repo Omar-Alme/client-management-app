@@ -1,15 +1,33 @@
 from django.db import models
 
 # Create your models here.
-# class client(models.Model):
-#     profile_pic = models.ImageField(upload_to='profile_pics', blank=True)
-#     first_name = models.CharField(max_length=50)
-#     last_name = models.CharField(max_length=50)
-#     business_name = models.CharField(max_length=50)
-#     email = models.CharField(max_length=50)
-#     bio = models.TextField(max_length=500)
-#     tasks = models.TextField(max_length=500)
-#     task_status = models.TextField(max_length=500)
+class client(models.Model):
+    business_owner = models.ForeignKey('BusinessOwner.Owner', on_delete=models.CASCADE)
+    company_logo = models.ImageField(upload_to='profile_pics', blank=True)
+    client_name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=50, unique=True, blank=True, null=True)
+    bio = models.TextField(max_length=500, blank=True, null=True, default="No bio yet")
+    tasks = models.TextField(max_length=500, blank=True, null=True, default="No tasks yet")
+    online_presence = models.URLField(max_length=200, blank=True, null=True)
 
-#     def __str__(self):
-#         return f"{self.first_name} {self.last_name}"
+   
+class Task(models.Model):
+
+    PRIOTIRY_CHOICES = [
+        ('H', 'High'),
+        ('M', 'Medium'),
+        ('L', 'Low'),
+    ]
+
+    STATUS_CHOICES = [
+        ('completed', 'Completed'),
+        ('inprogress', 'In Progress'),
+        ('todo', 'To Do'),
+    ]
+
+    client = models.ForeignKey(client, on_delete=models.CASCADE)
+    task_name = models.CharField(max_length=250, blank=True, null=True)
+    priority = models.CharField(max_length=10, choices=PRIOTIRY_CHOICES, default='L', blank=True, null=True)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='todo', blank=True, null=True)
+    deadline = models.DateField(blank=True, null=True)
+    is_completed = models.BooleanField(default=False, blank=True, null=True)
