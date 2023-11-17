@@ -1,26 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends 'base.html' %}
+{% load static %}
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A task and client management app for business owners. Streamline your tasks, manage clients efficiently, and boost productivity.">
-    <meta name="keywords" content="task management, client management, business management, business app, task app, client app, productivity app, business owner app, business owner, business productivity, business efficiency, business app, business management app, business management software, business management system, business management tools, business management tool, business management apps, business management">
-    <meta name="author" content="Omar Al-mehdhar">
-    <meta name="robots" content="index, follow">
-
-     <!-- Link to Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- Link to your external CSS file -->
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-  <title>My Website</title>
-</head>
-<body>
+{% block content %}
      <!-- Navigation bar  -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #303030;">
         <a class="navbar-brand" href="#">
-            <img src="{% static 'images/logo.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-top">
-            Cliento       
+            <img src="{% static 'images/logo.png' %}" alt="Logo" width="300" height="100" class="d-inline-block align-top">       
         </a>
         <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
@@ -49,33 +34,5 @@
             </div>
         </div>
     </div>
+{% endblock %}    
     
-    <!-- Footer -->
-      <footer class="footer bg-dark text-white">
-        <div class="container">
-          <div class="row">
-            <div class="col text-center">
-              <h2>My Website</h2>
-              <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
-              <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
-              <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
-            </div>
-          </div>
-        </div>
-      </footer>
-
-      <!-- Link to Bootstrap JS -->
-     <footer class="bg-dark text-white text-center py-3">
-        <img src="{% static 'images/logo.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-top">
-        <p>&copy; 2023 Your Company. All rights reserved.</p>
-    </footer>
-
-    <!-- Link to Bootstrap JS and jQuery (required for Bootstrap functionality) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-      <!-- Link to your external JS file -->
-      <script src="{% static 'js/base.js' %}"></script>
-  
-</body>
-</html>
