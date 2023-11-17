@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% block meta %}
+    {% comment %} Required meta tags {% endcomment %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A task and client management app for business owners. Streamline your tasks, manage clients efficiently, and boost productivity.">
+    <meta name="keywords" content="task management, client management, business management, business app, task app, client app, productivity app, business owner app, business owner, business productivity, business efficiency, business app, business management app, business management software, business management system, business management tools, business management tool, business management apps, business management">
+    <meta name="author" content="Omar Al-mehdhar">
+    <meta name="robots" content="index, follow">
+ {% endblock%}
+
+     <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <title>Cliently</title>
+</head>
+<body>
+
+{% block content %}
+{% endblock %}
+
+
+
+<!-- Footer -->
+     <footer class="text-white text-center py-3 mt-auto" style="background-color: #303030;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left mt-1">
+                    <img src="{% static 'images/logo.png' %}" alt="Logo" width="150" height="50" class="d-inline-block align-top">
+                </div>
+                <div class="col-md-6 text-right mt-3">
+                    <p class="text-muted ">&copy; 2023 Your Company. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to Bootstrap JS and jQuery (required for Bootstrap functionality) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <!-- Link to your external JS file -->
+      <script src="{% static 'js/base.js' %}"></script>
+  
+</body>
+</html>
