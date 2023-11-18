@@ -61,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AuthenticationMiddleware',
 ]
 
 ROOT_URLCONF = 'client_management.urls'
@@ -84,6 +85,12 @@ TEMPLATES = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    # ...
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+    # ...
+]
 
 
 # Django Allauth
@@ -105,6 +112,7 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 
 
 WSGI_APPLICATION = 'client_management.wsgi.application'
+
 
 
 # Database
