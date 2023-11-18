@@ -13,10 +13,21 @@
     <meta name="robots" content="index, follow">
  {% endblock%}
 
+
      <!-- Link to Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- Link to your external CSS file -->
+
+{% block corejs%}
+{% comment %} Font Awesome {% endcomment %}
+<script src="https://kit.fontawesome.com/e2c8990feb.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+   
+{% block corecss%}
+{% comment %} Link to css {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+{% endblock %}
+
   <title>Cliently</title>
 </head>
 <body>
@@ -27,11 +38,11 @@
 
 
 <!-- Footer -->
-     <footer class="text-white text-center py-3 mt-auto" style="background-color: #303030;">
+     <footer class="text-white text-center py-2 mt-auto shadow-lg" style="background-color: #343434;">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-left mt-1">
-                    <img src="{% static 'images/logo.png' %}" alt="Logo" width="150" height="50" class="d-inline-block align-top">
+                    <img src="{% static 'images/logo_nobg.png' %}" alt="Logo" width="150" height="50" class="d-inline-block align-top">
                 </div>
                 <div class="col-md-6 text-right mt-3">
                     <p class="text-muted ">&copy; 2023 Your Company. All rights reserved.</p>

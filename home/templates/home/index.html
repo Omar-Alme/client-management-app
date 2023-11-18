@@ -3,17 +3,21 @@
 
 {% block content %}
      <!-- Navigation bar  -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #303030;">
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-lg" style="background-color: #343434;">
         <a class="navbar-brand" href="#">
-            <img src="{% static 'images/logo.png' %}" alt="Logo" width="300" height="100" class="d-inline-block align-top">       
+            <img src="{% static 'images/logo_nobg.png' %}" alt="Logo" width="200" height="60" class="d-inline-block align-top">       
         </a>
         <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Log in</a>
+                    <a class="nav-link mr-4 mt-1" href="#">Log in</a>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-primary">Get started</button>
+                    <button class="button-36 mr-5">
+                    Get started                    
+                     <i class="fas fa-arrow-right"></i>
+                    </button>
+
                 </li>
             </ul>
         </div>
@@ -21,12 +25,14 @@
 
     <!-- Main Page -->
     <div class="container mt-5">
-        <div class="row">
+        <div class="row py-5">
             <div class="col-md-6">
-                <div class="text">
+                <div class="text mt-5">
                     <h1>Manage your business efficiently</h1>
                     <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
-                    <button class="btn btn-primary">Get started</button>
+                    <button class="button-36">Get started 
+                    <i class="fas fa-arrow-right" style="transform: rotate(-30deg);"></i>
+                    </button>
                 </div>
             </div>
             <div class="col-md-6">
