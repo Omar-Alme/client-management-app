@@ -1,0 +1,40 @@
+{% extends base.html %}
+{% load static %}
+
+{% block content %}
+    <div class="container text-center mt-5">
+        <h1 class="display-4">Welcome to the Dashboard!</h1>
+        <p class="lead">This is a simple dashboard template.</p>
+    </div>
+
+    <div class="position-fixed top-0 end-0 p-3">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addClientModal">
+            Add Client +
+        </button>
+    </div>
+
+    <!-- Bootstrap JS (optional, for modal) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Add Client Modal -->
+    <div class="modal fade" id="addClientModal" tabindex="-1" aria-labelledby="addClientModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addClientModalLabel">Add Client</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Add your form or content for adding a client here -->
+                    <p>Add your client form here...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+```
