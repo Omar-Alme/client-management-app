@@ -1,17 +1,19 @@
-{% extends base.html %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
-    <div class="container text-center mt-5">
-        <h1 class="display-4">Welcome to the Dashboard!</h1>
-        <p class="lead">This is a simple dashboard template.</p>
-    </div>
 
-    <div class="position-fixed top-0 end-0 p-3">
+<div class="position-fixed top-0 end-0 p-3">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addClientModal">
             Add Client +
         </button>
     </div>
+    <div class="container text-center mt-5">
+        <h1 class="display-4">Welcome to Your Dashboard {user}!</h1>
+        <p class="lead">Start by adding Your first client.</p>
+    </div>
+
+   
 
     <!-- Bootstrap JS (optional, for modal) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
