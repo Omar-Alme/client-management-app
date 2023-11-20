@@ -46,6 +46,10 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'crispy_forms',
+
+    'dashboard',
     'owners',
     'clients',
     'home',
@@ -89,10 +93,8 @@ TEMPLATES = [
 ]
 
 AUTHENTICATION_BACKENDS = [
-    # ...
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
-    # ...
 ]
 
 
@@ -102,25 +104,24 @@ SOCIALACCOUNT_PROVIDERS = {
         # (``socialaccount`` app) containing the required client
         # credentials, or list them here:
         'APP': {
-            'client_id': '123',
-            'secret': '456',
+            'client_id': '',
+            'secret': '',
             'key': ''
         }
     }
 }
 
 # Django Allauth
-SITE_ID = 1
+SITE_ID = 2
 
-LOGIN_URL = '/account/login/'
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/dashboard/'
+LOGOUT_REDIRECT_URL = '/home/'
 
 ACCOUNT_LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
@@ -130,6 +131,8 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 WSGI_APPLICATION = 'client_management.wsgi.application'
 
 
+# Crispy Forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
