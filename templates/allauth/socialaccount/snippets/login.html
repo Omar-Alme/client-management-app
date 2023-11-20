@@ -3,8 +3,8 @@
 {% load socialaccount %}
 {% get_providers as socialaccount_providers %}
 {% if socialaccount_providers %}
-    {% element hr %}
-    {% endelement %}
+    {% comment %} {% element hr %} {% endcomment %}
+    {% comment %} {% endelement %} {% endcomment %}
     {% element h2 %}
         {% translate "Or use a third-party" %}
     {% endelement %}
