@@ -1,0 +1,76 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+
+  <div class=row>
+    <div class="col-xl-4 py-3">
+    {% comment %} Profile picture Ccard  {% endcomment %}
+    <div class="card mb-4 mb-xl-0">
+        <div class="card-header">
+         Company Profile 
+        </div>
+        <div class="card-body text-center">
+        {% comment %} Profile image {% endcomment %}
+        <img class="img-account-profile profile-img rounded-circle mb-2" src="{% static 'images/profile_img.jpg' %}" alt="User Profile Image" width="50" height="50">
+        <br>
+        <button class="btn btn-sm btn-primary button-36">Upload New Photo</button>
+       </div>
+     </div>
+    </div>
+    
+    
+      
+
+    <div class="col-xl-8 py-3"> 
+    {% comment %} Profile Details Card {% endcomment %}
+    <div class="card mb-4">
+        <div class="card-header"> Company Details 
+          <a class="btn btn-sm btn-primary button-36 " href="{% url 'dashboard' %}">Back to Dashboard</a>
+        </div>
+        <div class="card-body">
+            <form>
+                {% comment %} Business Name {% endcomment %}
+                <div class="mb-3">
+                    <label class="small mb-1" for="inputBusinessName">Business Name</label>
+                    <input class="form-control" id="inputBusinessName" type="text" placeholder="">
+                </div>
+                {% comment %} First Name {% endcomment %}
+                <div class="row gx-3 mb-3">
+                      <div class="col-md-6">
+                         <label class="small mb-1" for="inputFirstName">First name</label>
+                                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name">
+                            </div>
+                {% comment %} Last Name {% endcomment %}
+                <div class="col-md-6">
+                    <label class="small mb-1" for="inputLastName">Last name</label>
+                   <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name">
+                </div>
+                </div>
+                {% comment %} Email {% endcomment %}
+                <div class="mb-3">
+                    <label class="small mb-1" for="inputEmailAddress">Email</label>
+                    <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter email address">
+                </div>
+                {% comment %} Business Website/Online Profile {% endcomment %}
+                <div class="mb-3">
+                    <label class="small mb-1" for="inputBusinessWebsite">Business Website/Online Profile</label>
+                    <a href="">
+                    <input class="form-control" id="inputBusinessWebsite" type="text" placeholder="Enter your business website">
+                    </a>
+                </div>
+                {% comment %} Bio {% endcomment %}
+                <div class="mb-3">
+                    <label class="small mb-1" for="inputBio">Bio</label>
+                    <textarea class="form-control" id="inputBio" type="text" placeholder="Enter your bio"></textarea>
+                </div>
+                {% comment %} Save Changes Button {% endcomment %}
+                <button class="btn btn-primary button-36" type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+    </div>
+  </div>
+
+
+{% endblock content %}
