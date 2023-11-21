@@ -5,11 +5,14 @@ from .models import owner
 
 
 class CustomSignupForm(SignupForm):
-    
-    # Add additional fields from your 'owner' model
+    """Form for the owner signup page"""
     first_name = forms.CharField(max_length=30, label='First Name', required=True, help_text='Required.', widget=forms.TextInput(attrs={'placeholder': 'First Name'}) )
     last_name = forms.CharField(max_length=30, label='Last Name', required=True, help_text='Required.', widget=forms.TextInput(attrs={'placeholder': 'Last Name'}) )
     business_name = forms.CharField(max_length=50, label='Business Name', required=True, help_text='Required.', widget=forms.TextInput(attrs={'placeholder': 'Business Name'}) )
+
+    def __init__(self, *args, **kwargs):
+       super(CustomSignupForm, self).__init__(*args, **kwargs)
+       del self.fields['username']
 
     def save(self, request):
        user = super(CustomSignupForm, self).save(request)
