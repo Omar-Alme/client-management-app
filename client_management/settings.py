@@ -127,6 +127,7 @@ ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 
+ACCOUNT_FORMS = {'signup': 'owners.forms.CustomSignupForm'}
 
 WSGI_APPLICATION = 'client_management.wsgi.application'
 
