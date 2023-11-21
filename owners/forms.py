@@ -5,26 +5,21 @@ from .models import owner
 
 
 class CustomSignupForm(SignupForm):
+    
     # Add additional fields from your 'owner' model
-    first_name = forms.CharField(max_length=30, label='First Name')
-    last_name = forms.CharField(max_length=30, label='Last Name')
-    business_name = forms.CharField(max_length=50, label='Business Name')
+    first_name = forms.CharField(max_length=30, label='First Name', required=True, help_text='Required.', widget=forms.TextInput(attrs={'placeholder': 'First Name'}) )
+    last_name = forms.CharField(max_length=30, label='Last Name', required=True, help_text='Required.', widget=forms.TextInput(attrs={'placeholder': 'Last Name'}) )
+    business_name = forms.CharField(max_length=50, label='Business Name', required=True, help_text='Required.', widget=forms.TextInput(attrs={'placeholder': 'Business Name'}) )
 
     def save(self, request):
-        # Call the parent class method to save the user
-        user = super().save(request)
+       user = super(CustomSignupForm, self).save(request)
 
-        # Save additional fields to the 'owner' model
-        owner = owner.objects.create(
-            user=user,  
-            first_name=self.cleaned_data['first_name'],
-            last_name=self.cleaned_data['last_name'],
-            business_name=self.cleaned_data['business_name'],
-            # Add other fields as needed
-        )
+       user.first_name = self.cleaned_data['first_name']
+       user.last_name = self.cleaned_data['last_name']
+       user.business_name = self.cleaned_data['business_name']
+       user.save()
 
-        return user
-
+       return user
 
 
 class ownerProfileForm(forms.ModelForm):
