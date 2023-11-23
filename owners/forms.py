@@ -1,14 +1,14 @@
 """Forms for the owners/profile app."""
 from django import forms
 from allauth.account.forms import SignupForm
-from .models import owner
+from .models import Owner
 
 
 class CustomSignupForm(SignupForm):
     """Form for the owner signup page"""
-    first_name = forms.CharField(max_length=30, label='First Name', required=True, help_text='Required.', widget=forms.TextInput(attrs={'placeholder': 'First Name'}) )
-    last_name = forms.CharField(max_length=30, label='Last Name', required=True, help_text='Required.', widget=forms.TextInput(attrs={'placeholder': 'Last Name'}) )
-    business_name = forms.CharField(max_length=50, label='Business Name', required=True, help_text='Required.', widget=forms.TextInput(attrs={'placeholder': 'Business Name'}) )
+    first_name = forms.CharField(max_length=30, label='First Name', required=True, widget=forms.TextInput(attrs={'placeholder': 'First Name'}) )
+    last_name = forms.CharField(max_length=30, label='Last Name', required=True,  widget=forms.TextInput(attrs={'placeholder': 'Last Name'}) )
+    business_name = forms.CharField(max_length=50, label='Business Name', required=True,  widget=forms.TextInput(attrs={'placeholder': 'Business Name'}) )
 
     def __init__(self, *args, **kwargs):
        super(CustomSignupForm, self).__init__(*args, **kwargs)
@@ -28,7 +28,7 @@ class CustomSignupForm(SignupForm):
 class ownerProfileForm(forms.ModelForm):
   """Form for owner profile"""
   class Meta():
-    model = owner
+    model = Owner
     fields = ('profile_pic', 'first_name', 'last_name', 'business_name', 'email', 'bio', 'website')
     widgets = {
       'profile_pic': forms.FileInput(attrs={'class': 'form-control'}),
