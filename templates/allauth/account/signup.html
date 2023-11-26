@@ -1,32 +1,67 @@
 {% extends "account/base.html" %}
-{% load allauth i18n socialaccount %}
+{% load i18n %}
+{% load allauth account socialaccount crispy_forms_tags %}
+{% load static %}
+
 {% block head_title %}
-    {% trans "Signup" %}
+    {% trans "Sign Up" %}
 {% endblock head_title %}
+
 {% block content %}
-    {% element h1 %}
-        {% trans "Sign Up" %}
-    {% endelement %}
-    <p>
-        {% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}
-    </p>
-    {% url 'account_signup' as action_url %}
-    {% element form form=form method="post" action=action_url tags="entrance,signup" %}
-        {% slot body %}
-            {% csrf_token %}
-            {% element fields form=form unlabeled=True %}
-            {% endelement %}
-            {% if redirect_field_value %}
-                <input type="hidden"
-                       name="{{ redirect_field_name }}"
-                       value="{{ redirect_field_value }}" />
-            {% endif %}
-        {% endslot %}
-        {% slot actions %}
-            {% element button tags="prominent,signup" type="submit" %}
-                {% trans "Sign Up" %}
-            {% endelement %}
-        {% endslot %}
-    {% endelement %}
-    {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+
+
+    <div class="signup-container">
+        <div class="form-and-image-container">
+            <div class="signup-form">
+                {% element h1 %}
+                    {% trans "Sign Up" %}
+                {% endelement %}
+                <p>
+                    {% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}
+                </p>
+                {% url 'account_signup' as signup_url %}
+                {% element form form=form method="post" action=signup_url tags="entrance,signup" %}
+                    {% slot body %}
+                        {% csrf_token %}
+                        <div class="signup-form-group">
+                            <label for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}</label>
+                            {{ form.first_name }}
+                        </div>
+                        <div class="signup-form-group">
+                            <label for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}</label>
+                            {{ form.last_name }}
+                        </div>
+                        <div class="signup-form-group">
+                            <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="signup-form-group">
+                            <label for="{{ form.password1.id_for_label }}">{{ form.password1.label }}</label>
+                            {{ form.password1 }}
+                        </div>
+                        <div class="signup-form-group">
+                            <label for="{{ form.password2.id_for_label }}">{{ form.password2.label }}</label>
+                            {{ form.password2 }}
+                        </div>
+                        {% if redirect_field_value %}
+                            <input type="hidden"
+                                name="{{ redirect_field_name }}"
+                                value="{{ redirect_field_value }}" />
+                        {% endif %}
+                    {% endslot %}
+                    {% slot actions %}
+                        <button type="submit" tags="prominent,signup">
+                            {% trans "Sign Up" %}
+                        </button>
+                    {% endslot %}
+                {% endelement %}
+            </div>
+
+            <div class="image-container">
+                <div class="image">
+                    <img src="{% static 'images/form.jpg' %}" alt="Image">
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
