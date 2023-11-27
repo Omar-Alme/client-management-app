@@ -14,8 +14,19 @@ body {
   position: relative;
 }
 
+/* --------------------------------------------------- HOME */
 
-/* --------------------------------------------------- Custom Button */
+.home {
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 200px;
+}
+
+
+/* --------------------------------------------------- CUSTOM BUTTON */
 .button-36 {
   background: #5E5DF0;
   border-radius: 999px;
