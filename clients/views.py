@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from .models import Client
 from dashboard.forms import ClientForm
@@ -9,6 +9,7 @@ def client_form(request):
     """A view that displays the client form"""
 
     form = ClientForm()
+    clients = Client.objects.all()
     if request.method == 'POST':
         # print('Printing Post' ,request.POST)
         form = ClientForm(request.POST)
@@ -35,7 +36,7 @@ def add_client(request):
 
 def edit_client(request, pk):
     """A view that displays the client form"""
-    client = get_object_or_404(Client,pk=client_id)
+    client = get_object_or_404(Client,pk=pk)
 
     # form = ClientForm(instance=client)
     if request.method == 'POST':
@@ -44,6 +45,8 @@ def edit_client(request, pk):
         if form.is_valid():
             form.save()
             return redirect('add_client')
+    else:
+        form = ClientForm(instance=client)
 
 
     context = {
@@ -55,8 +58,8 @@ def edit_client(request, pk):
 
 def delete_client(request, pk):
     """A view that displays the client form"""
-    client = get_object_or_404(Client,pk=client_id)
-    
+    client = get_object_or_404(Client,pk=pk)
+
     if request.method == 'POST':
         client.delete()
         return redirect('add_client')

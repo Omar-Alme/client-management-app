@@ -6,6 +6,6 @@ from . import views
 urlpatterns = [
   path('client_form/', views.client_form, name='client_form'),
   path('add_client/', views.add_client, name='add_client'),
-  path('edit_client/<int:client_id>/', views.edit_client, name='edit_client'),
-  path('delete_client/<int:client_id>/', views.delete_client, name='delete_client'),
+  path('edit_client/<int:pk>/', views.edit_client, name='edit_client'),
+  path('delete_client/<int:pk>/', views.delete_client, name='delete_client'),
 ]
