@@ -3,69 +3,20 @@
 
 {% block content %}
 
+
 <div class="position-fixed top-0 end-0 p-3">
-    <button type="button" class="button-36" data-bs-toggle="modal" data-bs-target="#addClientModal">
-        Add Client +
-    </button>
+    <a href="{% url 'client_form' %}">
+        <button type="button" class="button-36">
+            Add Client +
+        </button>
+    </a>
 </div>
-<div class="container text-center mt-5">
-    <h3 class="display-4">Welcome to Your Dashboard {{user.first_name}}!</h3>
+<div id="dashboardContainer" class="dashboard container text-center mt-5">
+
+    <h3 class="display-4">Welcome to Your Dashboard <span class="first-name-display">{{user.first_name}}!</span></h3>
     <p class="lead">Start by adding Your first client.</p>
 </div>
 
-
-
-<!-- Bootstrap JS (optional, for modal) -->
-
-<!-- Add Client Modal -->
-<div class="modal fade" id="addClientModal" tabindex="-1" aria-labelledby="addClientModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addClientModalLabel">Add Client</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="addClientForm">
-                    {% csrf_token %}
-                    <div class="mb-3">
-                        <label for="companyLogo" class="form-label">Company Logo</label>
-                        <input type="file" class="form-control" id="companyLogo" name="company_logo" accept="image/*">
-                    </div>
-                    <!-- Input for Client Name -->
-                    <div class="mb-3">
-                        <label for="clientName" class="form-label">Client Name</label>
-                        <input type="text" class="form-control" id="clientName" name="client_name" required>
-                    </div>
-                    <!-- Input for lient industry -->
-                    <div class="mb-3">
-                        <label for="clientIndustry" class="form-label">Client Industry</label>
-                        <input type="text" class="form-control" id="clientIndustry" name="client_industry" required>
-                    </div>
-                    <!-- Input for Client Email -->
-                    <div class="mb-3">
-                        <label for="clientEmail" class="form-label">Client Email</label>
-                        <input type="email" class="form-control" id="clientEmail" name="client_email" required>
-                    </div>
-                    <!-- Input for Client Bio  -->
-                    <div class="mb-3">
-                        <label for="clientBio" class="form-label">Client Bio</label>
-                        <textarea class="form-control" id="clientBio" name="client_bio" rows="3" required></textarea>
-                    </div>
-                    <!-- Input for Client online Presence -->
-                    <div class="mb-3">
-                        <label for="clientWebsite" class="form-label">Online Presence</label>
-                        <input type="url" class="form-control" id="onlinePresence" name="online_presence">
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary button-36">Add Client</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 {% endblock content %}
+
 ```
