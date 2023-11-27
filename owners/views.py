@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib import messages
 from owners.models import Owner
@@ -26,14 +26,17 @@ def save_profile(request):
     """A view that saves the owner profile page"""
     if request.method == 'POST':
         form = OwnerProfileForm(request.POST, request.FILES, instance=request.user.owner)
+        print(request.user.owner)
+    
         if form.is_valid():
+            print('form is valid')
             form.save()
-            messages.success(request, 'Your profile was successfully updated!')
-            return JsonResponse({'status': 'success'})
+            return redirect('profile')
         else:
+            print()
             messages.error(request, 'Please correct the error below.')
-            return JsonResponse({'status': 'error', 'errors': form.errors})
+            return redirect('profile')
     else:
         form = OwnerProfileForm(instance=request.user.owner)
     return render(request, 'owners/profile.html', {'form': form})
-    
+

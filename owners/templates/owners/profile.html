@@ -19,7 +19,7 @@
             {% if success_message %}
                <p class="text-success">{{ success_message }}</p>
             {% endif %}
-              <form method="post" action="{% url 'profile' %}" enctype="multipart/form-data">
+              <form method="post" action="{% url 'save_profile' %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
                 {% comment %} Profile Image {% endcomment %}
@@ -44,7 +44,7 @@
                   <div class="col-md-6">
                     <label class="form-label" for="inputFirstName">First name</label>
                     <input class="form-control" id="inputFirstName" type="text" placeholder="Enter Your First Name"
-                      value="{{ request.user.first_name }}">
+                      value="{{ owner.first_name }}">
                   </div>
                   <div class="col-md-6">
                     <label class="form-label" for="inputLastName">Last name</label>
