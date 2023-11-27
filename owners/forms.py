@@ -43,4 +43,7 @@ class OwnerProfileForm(forms.ModelForm):
       'website': forms.URLInput(attrs={'class': 'form-control'}),
     }
 
+  profile_pic = forms.ImageField(widget=forms.ClearableFileInput(attrs={'class': 'form-control'}), required=False)
+
+
 
