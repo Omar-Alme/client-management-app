@@ -71,14 +71,14 @@ body {
 }
 
 /* ----------------------------------------------------- MODAL */
-.modal-body {
+/* .modal-body {
   background-color: #494458;
   border-radius: 8px;
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.04);
   padding: 24px;
   width: 100%;
   max-width: 480px;
-}
+} */
 
 /* ---------------------------------------------- PROFILE IMAGE */
 .profile-img {
@@ -119,6 +119,11 @@ body {
   color: #5E5DF0;
 }
 
+
+/* ----------------------------------------------CLIENT FORM */
+.add-client {
+  padding-bottom: 150px;
+}
 
 
 /* ----------------------------------------- REGISTERATION */
