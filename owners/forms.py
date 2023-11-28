@@ -17,9 +17,8 @@ class CustomSignupForm(SignupForm):
 
     def save(self, request):
        user = super(CustomSignupForm, self).save(request)
-
-      #  user.first_name = self.cleaned_data['first_name']
-      #  user.last_name = self.cleaned_data['last_name']
+       user.first_name = self.cleaned_data['first_name']
+       user.last_name = self.cleaned_data['last_name']
        user.email = self.cleaned_data['email']
        user.save()
 
@@ -32,9 +31,8 @@ class OwnerProfileForm(forms.ModelForm):
   """Form for owner profile"""
   class Meta():
     model = Owner
-    fields = ('profile_pic', 'first_name', 'last_name', 'business_name', 'email', 'bio', 'website')
+    fields = ('first_name', 'last_name', 'business_name', 'email', 'bio', 'website')
     widgets = {
-      'profile_pic': forms.FileInput(attrs={'class': 'form-control'}),
       'first_name': forms.TextInput(attrs={'class': 'form-control'}),
       'last_name': forms.TextInput(attrs={'class': 'form-control'}),
       'business_name': forms.TextInput(attrs={'class': 'form-control'}),
@@ -42,8 +40,6 @@ class OwnerProfileForm(forms.ModelForm):
       'bio': forms.Textarea(attrs={'class': 'form-control'}),
       'website': forms.URLInput(attrs={'class': 'form-control'}),
     }
-
-  profile_pic = forms.ImageField(widget=forms.ClearableFileInput(attrs={'class': 'form-control'}), required=False)
 
 
 
