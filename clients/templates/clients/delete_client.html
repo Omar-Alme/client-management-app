@@ -9,7 +9,7 @@
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-danger">Yes, Delete</button>
-                    <a href="{% url 'add_client'  %}" class="btn btn-default py-5">Cancel</a>
+                    <a href="{% url 'clients:dashboard'  %}" class="btn btn-default py-5">Cancel</a>
                 </form>
         </div>
 </div>
