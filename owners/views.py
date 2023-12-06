@@ -4,6 +4,7 @@ from django.contrib import messages
 from owners.models import Owner
 from .forms import OwnerProfileForm
 from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -42,3 +43,18 @@ def save_profile(request):
         form = OwnerProfileForm(instance=request.user.owner)
     return render(request, 'owners/owner_profile.html', {'form': form})
 
+
+@login_required
+def edit_profile(request):
+    owner = request.user.owner
+
+    if request.method == 'POST':
+        form = OwnerProfileForm(request.POST, request.FILES, instance=owner)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your profile was successfully updated!')
+            return redirect('edit_profile')
+    else:
+        form = OwnerProfileForm(instance=owner)
+
+    return render(request, 'owners/edit_profile.html', {'form': form})
