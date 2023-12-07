@@ -2,14 +2,23 @@
 {% load static %}
 
 {% block content %}
-    <div class="container py-5">
-        <h1>Edit Client {{client.client_name}}</h1>
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Save Changes</button>
-            <a href="{% url 'clients:dashboard' %}" class="btn btn-secondary">Cancel</a>
-        </form> 
+<div class="edit-client container py-5 mb-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center mt-2">Edit Client {{ client.client_name }}</h1>
+        </div>
     </div>
+
+    <form method="post" class="col-md-6 mx-auto">
+        {% csrf_token %}
+        <div class="mb-3 text-center">
+            <img src="{% static 'images/client.jpg' %}" alt="default" class="client-avatar img-fluid rounded-circle" width="100">
+        </div>
+        {{ form.as_p }}
+        <div class="mb-3 d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary mr-3">Save Changes</button>
+            <a href="{% url 'clients:dashboard' %}" class="btn btn-secondary ms-2">Cancel</a>
+        </div> 
+    </form>
+</div>
 {% endblock content %}
-```

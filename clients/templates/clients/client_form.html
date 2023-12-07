@@ -3,42 +3,22 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="add-client container py-5">
+<div class="add-client container py-5 mb-5">
     <div class="row">
         <div class="col-md-12">
             <h1 class="text-center mt-2">Add Client</h1>
         </div>
     </div>
 
-    <form id="addClientForm" action="" method="post">
+    <form id="addClientForm" action="" method="post" class="bootstrap4 col-md-6 mx-auto">
         {% csrf_token %}
-        <div class="mb-3">
-            <img src="{% static 'images/client.jpg' %}" alt="default" class="client-avatar img-fluid rounded-circle mx-auto d-block" width="100">
+        <div class="mb-3 text-center">
+            <img src="{% static 'images/client.jpg' %}" alt="default" class="client-avatar img-fluid rounded-circle" width="100">
         </div>
-        <div class="mb-3">
-            <label for="clientName" class="form-label">Client Name</label>
-            <input type="text" class="form-control" id="clientName" name="client_name" required>
-        </div>
-        <div class="mb-3">
-            <label for="clientIndustry" class="form-label">Client Industry</label>
-            <input type="text" class="form-control" id="clientIndustry" name="client_industry" required>
-        </div>
-        <div class="mb-3">
-            <label for="clientEmail" class="form-label">Client Email</label>
-            <input type="email" class="form-control" id="clientEmail" name="client_email" required>
-        </div>
-        <div class="mb-3">
-            <label for="clientBio" class="form-label">Client Bio</label>
-            <textarea class="form-control" id="clientBio" name="client_bio" rows="3" required></textarea>
-        </div>
-        <div class="mb-3">
-            <label for="onlinePresence" class="form-label">Online Presence</label>
-            <input type="url" class="form-control" id="onlinePresence" name="online_presence">
-        </div>
-
-        <div class="mb-3">
-            <button type="submit" class="btn btn-primary">Add Client</button>
-            <a href="{% url 'clients:dashboard' %}" class="btn btn-secondary">Cancel</a>
+       {% crispy form %}
+        <div class="mb-3 d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary mr-3">Add Client</button>
+            <a href="{% url 'clients:dashboard' %}" class="btn btn-secondary ms-2">Cancel</a>
         </div> 
     </form>
 </div>

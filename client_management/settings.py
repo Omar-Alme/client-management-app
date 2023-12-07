@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'crispy_forms',
+    'crispy_bootstrap4',
+    'crispy_bootstrap5',
     'cloudinary',
     'cloudinary_storage',
     'owners',
@@ -132,6 +134,7 @@ WSGI_APPLICATION = 'client_management.wsgi.application'
 
 # Crispy Forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

@@ -1,6 +1,7 @@
 """Forms for the owners/profile app."""
 from django import forms
 from allauth.account.forms import SignupForm, LoginForm
+from allauth.account.views import SignupView
 from .models import Owner
 
 
@@ -8,9 +9,8 @@ class CustomSignupForm(SignupForm):
     """Form for the owner signup page"""
     first_name = forms.CharField(max_length=30, label='First Name', required=True, widget=forms.TextInput(attrs={'placeholder': 'First Name'}) )
     last_name = forms.CharField(max_length=30, label='Last Name', required=True,  widget=forms.TextInput(attrs={'placeholder': 'Last Name'}) )
-   
-    
 
+    
     def __init__(self, *args, **kwargs):
        super(CustomSignupForm, self).__init__(*args, **kwargs)
        del self.fields['username']
@@ -40,6 +40,18 @@ class OwnerProfileForm(forms.ModelForm):
       'bio': forms.Textarea(attrs={'class': 'form-control'}),
       'website': forms.URLInput(attrs={'class': 'form-control'}),
     }
+
+
+class SignupView(SignupView):
+    """A view that displays the signup page"""
+    form_class = CustomSignupForm
+    
+    def form_valid(self, form):
+      response = super().form_valid(form)
+
+      login(self.request, self.user)
+      return response
+
 
 
 
