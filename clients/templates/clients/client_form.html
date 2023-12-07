@@ -15,7 +15,7 @@
         <div class="mb-3 text-center">
             <img src="{% static 'images/client.jpg' %}" alt="default" class="client-avatar img-fluid rounded-circle" width="100">
         </div>
-       {% crispy form %}
+       {{ form.as_p }}
         <div class="mb-3 d-flex justify-content-center">
             <button type="submit" class="btn btn-primary mr-3">Add Client</button>
             <a href="{% url 'clients:dashboard' %}" class="btn btn-secondary ms-2">Cancel</a>
