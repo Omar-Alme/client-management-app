@@ -51,8 +51,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     'crispy_bootstrap5',
-    'cloudinary',
-    'cloudinary_storage',
     'owners',
     'clients',
     'home',
@@ -117,7 +115,7 @@ SITE_ID = 2
 
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/clients/dashboard/'
-LOGOUT_REDIRECT_URL = '/home/'
+LOGOUT_REDIRECT_URL = '/home/index/'
 
 ACCOUNT_LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_SESSION_REMEMBER = True
@@ -200,5 +198,5 @@ STATICFILES_DIRS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+ADMIN_LOGOUT_REDIRECT_URL = '/accounts/login/'
 
