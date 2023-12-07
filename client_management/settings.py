@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import cloudinary_storage
 import os
 import dj_database_url
 if os.path.exists("env.py"):
@@ -48,8 +49,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'crispy_forms',
-
-    'dashboard',
+    'cloudinary',
+    'cloudinary_storage',
     'owners',
     'clients',
     'home',
@@ -85,8 +86,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.request',
-                # 'allauth.account.context_processors.account',
-                # 'allauth.socialaccount.context_processors.socialaccount',
             ],
         },
     },
@@ -101,9 +100,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
-        # For each OAuth based provider, either add a ``SocialApp``
-        # (``socialaccount`` app) containing the required client
-        # credentials, or list them here:
+    
         'APP': {
             'client_id': '',
             'secret': '',
@@ -116,7 +113,7 @@ SOCIALACCOUNT_PROVIDERS = {
 SITE_ID = 2
 
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/dashboard/'
+LOGIN_REDIRECT_URL = '/clients/dashboard/'
 LOGOUT_REDIRECT_URL = '/home/'
 
 ACCOUNT_LOGOUT_REDIRECT_URL = '/'
@@ -199,3 +196,6 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
