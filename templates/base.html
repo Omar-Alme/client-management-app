@@ -80,17 +80,23 @@
 </div>
 {% comment %} <!-- Footer --> {% endcomment %}
      <footer class="text-white text-center py-2 mt-auto shadow-lg" style="background-color: #343434;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-left mt-1">
-                    <img src="{% static 'images/logo_nobg.png' %}" alt="Logo" width="150" height="50" class="d-inline-block align-top">
-                </div>
-                <div class="col-md-6 text-right mt-3">
-                    <p class="text-muted ">&copy; 2023 Cliently by Omar Al-mehdhar.</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-left mt-1">
+                <img src="{% static 'images/logo_nobg.png' %}" alt="Logo" width="150" height="50" class="d-inline-block align-top">
+            </div>
+            <div class="col-md-6 text-right mt-3">
+                <p class="text-muted ">&copy; 2023 Cliently by Omar Al-mehdhar.</p>
+                <div class="social-icons">
+                    <a href="https://github.com/Omar-Alme" target="_blank" class="text-white mx-2"><i class="fab fa-github fa-2x"></i></a>
+                    <a href="https://www.linkedin.com/in/omar-al-mehdhar/" target="_blank" class="text-white mx-2"><i class="fab fa-linkedin fa-2x"></i></a>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
+
+
     {% comment %} <!-- Link to Bootstrap JS and jQuery (required for Bootstrap functionality) --> {% endcomment %}
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
