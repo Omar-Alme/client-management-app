@@ -6,12 +6,11 @@ Repository: [GitHub Repo](https://github.com/Omar-Alme/client-management-app)
 
 The app is developed by [Omar Al-mehdhar](https://github.com/Omar-Alme)
 
-*Insert app picture*
-
+![Home](documentation/features/home.png)
 
 ## About
 
-[Client Management App]() is *Write about the app*
+[Client Management App](https://client-management-2b59dd79d4aa.herokuapp.com/): Welcome to Cliently, your all-in-one client management solution designed for business owners and individuals who aim to efficiently organize and keep track of their clients. Whether you run a business or want to manage your personal connections, Cliently offers a streamlined approach to client management, ensuring you never miss a beat in nurturing your valuable relationships.
 
 
 
@@ -19,8 +18,7 @@ The app is developed by [Omar Al-mehdhar](https://github.com/Omar-Alme)
 
 ### Target Audience
 
-*Write about the target audience for the app*
-
+This app is for any business owner who wants to track their clients and save their most important information in one location.
 
 ### User Stories
 
@@ -154,4 +152,220 @@ This is a simple flowchart used. The flowcharts were created using [LucidChart](
 In the project's initial phases, the database was established utilizing SQLite for its simplicity and lightweight nature. Subsequently, as the project evolved and required a more robust database management system, it was migrated to PostgreSQL to accommodate increased scalability and performance demands.
 
 ### Entity-Relationship Diagram
+
+ +----------------+         +-----------------+
+ |      User      |         |      Client     |
+ +----------------+         +-----------------+
+ | PK: id         |    +--->| PK: id          |
+ | username       |    |    | FK: user_id     |
+ | password       |    |    | client_name     |
+ | email          |    |    | industry        |
+ +----------------+    |    | email (unique)  |
+                       |    | bio             |
+                       |    | online_presence |
+                       |    +-----------------+
+                       |
+ +----------------+    |
+ |      Owner     |    |
+ +----------------+    |
+ | PK: id         |    |
+ | FK: user_id    |    |
+ | first_name     |    |
+ | last_name      |    |
+ | business_name  |    |
+ | email (unique) |    |
+ | bio            |    |
+ | website        |    |
+ +----------------+    |
+
+### Data models
+
+#### Client Model
++---------+--------------+---------------+------------------+-------+------------------+
+| Field   | Type         | Blank         | Null             | Unique| Default          |
++---------+--------------+---------------+------------------+-------+------------------+
+| id      | Primary Key  | Not Blank     | Not Null         |       |                  |
+| user_id | Foreign Key  | Blank         | Not Null         |       |                  |
+| client_name | CharField | Blank         | Blank            |       |                  |
+| industry| CharField    | Blank         | Blank            |       |                  |
+| email   | EmailField   | Blank         | Blank, Unique    | Yes   |                  |
+| bio     | TextField    | Blank         | Blank            |       | No bio yet       |
+| online_presence | URLField | Blank      | Blank            |       |                  |
++---------+--------------+---------------+------------------+-------+------------------+
+
+#### Owner/User Model
+
++-----------+--------------+---------------+------------------+-------+------------------+
+| Field     | Type         | Blank         | Null             | Unique| Default          |
++-----------+--------------+---------------+------------------+-------+------------------+
+| id        | Primary Key  | Not Blank     | Not Null         |       |                  |
+| user_id   | Foreign Key  | Blank         | Not Null         |       |                  |
+| first_name| CharField    | Blank         | Blank            |       |                  |
+| last_name | CharField    | Blank         | Blank            |       |                  |
+| business_name | CharField| Blank         | Blank, Unique    | Yes   |                  |
+| email     | EmailField   | Blank         | Blank, Unique    | Yes   |                  |
+| bio       | TextField    | Blank         | Blank            |       | No bio yet       |
+| website   | URLField     | Blank         | Blank            |       |                  |
++-----------+--------------+---------------+------------------+-------+------------------+
+
+## Testing 
+
+Please refer back to [TESTING.md](TESTING.md) file for all test-related documentation.
+
+## Deployment 
+
+ - The app was deployed to [Heroku](https://client-management-2b59dd79d4aa.herokuapp.com/)
+ - The database was deployed to [ElephantSQL](https://www.elephantsql.com/).
+
+### Local Deployment
+In order to make a local copy of this project, you can clone it.
+In your IDE Terminal, type the following command to clone my repository:
+
+-      git clone https://github.com/Omar-Alme/client-management-app
+
+*Note:*
+  - This project requires to install all the requirements:
+  - Open the terminal window and type:
+  - `pip3 install -r requirements.txt`
+
+1. Install the dependencies:
+
+    - Open the terminal window and type:
+    - `pip3 install -r requirements.txt`
+
+
+2. Create a `.gitignore` file in the root directory of the project where you should add env.py and __pycache__ files to prevent the privacy of your secret data.
+
+3. Create a `.env` file. This will contain the following environment variables:
+
+    ```python
+    import os
+
+      os.environ['SECRET_KEY'] = 'Add a secret key'
+      os.environ['DATABASE_URL'] = 'will be used to connect to the database'
+      os.environ['DEBUG'] = 'True'
+    ```
+
+    *During the development stage DEBUG is set to True, but it is vital to change it to False.*
+
+4. Run the following commands in a terminal to make migrations: 
+    - `python3 manage.py makemigrations`
+    - `python3 manage.py migrate`
+5. Create a superuser to get access to the admin environment.
+    - `python3 manage.py createsuperuser`
+    - Enter the required information (your username, email and password).
+6. Run the app with the following command in the terminal:
+    - `python3 manage.py runserver`
+7. Open the link provided in a browser to see the app.
+
+8. If you need to access the admin page:
+    - Add /admin/ to the link provided.
+    - Enter your username and password (for the superuser that you have created before).
+    - You will be redirected to the admin page.
+
+
+### ElephantSQl Database Deployment
+
+1. Go to [ElephantSQL](https://www.elephantsql.com/) and create a new account.
+
+2. Create a new instance of the database.
+
+3. Select a name for your database and select the free plan.
+
+4. Click "Select Region"
+
+5. Select a region close to you.
+
+6. Click "Review"
+
+7. Click "Create Instance"
+
+8. Click on the name of your database to open the dashboard.
+
+9. You will see the dashboard of your database. You will need the URL of your database to connect it to your Django project.
+
+### Heroku Deployment
+
+* Set up a local workspace on your computer for Heroku:
+    - Create a list of requirements that the project needs to run:
+      - type this in the terminal: `pip3 freeze > requirements.txt`
+    - Commit and push the changes to GitHub
+    
+* Go to [www.heroku.com](www.heroku.com) 
+* Log in or create a Heroku account.
+* Create a new app with any unique name <name app>.
+
+
+* Create a Procfile in your local workplace:
+
+    
+    This file will will contain the following:
+    ```python
+        web: gunicorn <name app>.wsgi:application
+    ```
+    - Commit and push the changes to GitHub.
+
+
+* Go to the settings app in Heroku and go to Config Vars.
+
+
+Click on Reveal Config Vars and add the following config variables:
+
+| Key      | Value          |
+|-------------|-------------|
+| DATABASE_URL | ... | 
+| DISABLE_COLLECTSTATIC | 1 |
+| SECRET_KEY | ... |
+| PORT | ... |
+| DEBUG | ... |
+
+* Copy the value of DATABASE_URL and input it into the .env file and generate a secret key (you may use [Djecrety](https://djecrety.ir/) for secret key generation).
+* Create EMAIL_HOST_PASS and EMAIL_HOST_USER with a gmail account and add values to these keys.
+* Migrate changes.
+* Set debug to False in settings.py
+* Commit and push the changes to GitHub.
+* Connect your repository to Heroku.
+
+  
+
+* Deploy the app to Heroku by clicking "Deploy Branch" button. If you want to enable auto-deployment, click "Enable Automatic Deployment".
+
+
+The deployment process will start.
+
+Click "View build logs" to see the progress of the deployment.
+
+
+*Due to security updates, Heroku dashboard will not allow you to deploy your app from GitHub. Thus, you need to run the following commands in your terminal:*
+
+| action | terminal command | comment |
+| ------ | ---------------- | ------- |
+| login to your heroku account | `heroku login -i` | |
+| create a new app on heroku | `heroku create NAME-OF-YOUR-APP` | if you haven't created the app before, and then, you can access the app via the Heroku dashboard and set up your config vars.|
+| add remote to your local repository | `heroku git:remote -a NAME-OF-YOUR-APP` | if you have already created app on Heroku (before the security updates) and connected it using Heroku dashboard |
+| deploy new version of the app | `git push heroku main` | |
+| rename app | `git remote rename NAME-OF-YOUR-APP NAME-OF-YOUR-APP-2` | |
+
+**Final Deployment**
+
+* Set debug to False locally + delete DISABLE_COLLECTSTATIC from config vars in Heroku dashboard.
+* Commit and push the changes to GitHub.
+
+
+
+## Credits
+ - Credits to all the softwares and tools used. Refer to the tools section of the README file.
+ - [Freepik](https://www.freepik.com/free-vector/sign-page-abstract-concept-illustration_12291223.htm#query=sign%20up&position=5&from_view=search&track=ais&uuid=c42fbb6e-317d-42c1-8f9f-831deb639017): For some of the icons and images used across the application.
+ - [Coding heroes](https://codingheroes.io/resources/): Credits to jonas Schmedtmann free resources website for developers
+ - [Undraw](https://undraw.co/illustrations): For the illustration on the homepage.
+ - [Programming with Mosh](https://www.youtube.com/watch?v=rHux0gMZ3Eg&t=895s): For helping understand django python a little more.
+ - [FreeCodeCamp](https://www.youtube.com/watch?v=t10QcFx7d5k&t=3144s): for user authentication help.
+ - [Dennis Ivy](https://www.youtube.com/watch?v=EX6Tt-ZW0so&t=985s): For Crud functionality help.
+
+## Acknowledgments
+
+ - [Juliia Konovalova](https://github.com/IuliiaKonovalova) For guiding me so much with everything and giving me tips and ideas for my project. Kept me grounded and patient when stressed.
+ - Most importantly the Code institute Community and fellow students.
+
+
 
