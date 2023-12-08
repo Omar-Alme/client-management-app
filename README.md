@@ -1,6 +1,6 @@
 # Client - Management
 
-Live Version: [Client-app]()
+Live Version: [Client-app](https://client-management-2b59dd79d4aa.herokuapp.com/)
 
 Repository: [GitHub Repo](https://github.com/Omar-Alme/client-management-app)
 
@@ -69,6 +69,8 @@ The app is developed by [Omar Al-mehdhar](https://github.com/Omar-Alme)
 - ### Frameworks and libraries:
 
     + [Django](https://www.djangoproject.com/): python framework used to create all the logic.
+    + [jQuery](https://jquery.com/): was used to control click events and sending AJAX requests.
+    + [Bootstrap](https://getbootstrap.com/): most popular CSS framework for developing responsiveness
 
 
 - ### Databases:
@@ -78,12 +80,24 @@ The app is developed by [Omar Al-mehdhar](https://github.com/Omar-Alme)
   
 - ### Other tools:
 
-    + []():
-    + []():
-    + []():
-    + []():
-    + []():
-    + []():  
+    + [Git](https://git-scm.com/): version control tool to manage the code
+    + [Pip3](https://pypi.org/project/pip/): the package manager used to install dependecies
+    + [Gunicorn](https://gunicorn.org/): webserver used to run the website
+    + [Psycopg2](https://www.python.org/dev/peps/pep-0249/): used to connect the database
+    + [Django-allauth](https://django-allauth.readthedocs.io/en/latest/): the authentication library used to create users and authenticate them
+    + [Heroku](https://www.heroku.com/): cloud platform used to host the website
+    + [ElephantSQL](https://www.elephantsql.com/): the cloud database used to store all the data 
+    + [Github](https://github.com/): used to store the websites source code
+    + [VScode](https://code.visualstudio.com/): the IDE used to develop the websiteß
+    + [Chrome Devtools](https://developer.chrome.com/docs/devtools/open/): was used to debug the website
+    + [Font Awesome](https://fontawesome.com/): platform used to create icons for the website
+    + [W3C HTML Validator](https://validator.w3.org/): validator used to validate the HTML5 code for the website
+    + [W3C CSS Validator](https://jigsaw.w3.org/css-validator/): validator used to validate the CSS code for the website
+    + [JShint](https://jshint.com/): validator used to validate JS code for the website
+    + [PEP8](https://pep8.org/): validator used to validate python code for the website
+    + [Whitenoise](https://whitenoise.readthedocs.io/en/latest/): pip package to serve static files so they can deploy anywhere
+   
+
 
 
   
