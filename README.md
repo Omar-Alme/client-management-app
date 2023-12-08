@@ -99,8 +99,59 @@ The app is developed by [Omar Al-mehdhar](https://github.com/Omar-Alme)
    
 
 
+## FEATURES
 
-  
+Please refer to the [FEATURES.md](FEATURES.md) file for all features of the application.
+
+## Design 
+
+TThe application's design adheres to the principles of Material Design, emphasizing simplicity in user interaction. The primary focus is on ease of use, achieved through the intentional design of components to be user-friendly. By adopting a minimalistic approach, the goal was to create a meaningful and purposeful design without unnecessary distractions. Given the multifunctional nature of the application and its numerous components, the strategic use of white spaces was employed to enhance the overall user experience, contributing to a more visually pleasing and intuitive interface.
+
+### Colour Scheme
+
+![Color Schema](documentation/design/color_pallete.png)
+
+In this application, a thoughtfully curated color scheme has been implemented to enhance the user experience. The choice of shades of black for the navigation bar and footer creates a sleek and professional appearance, ensuring optimal readability and visual appeal in these areas.
+
+The white background at the center of the page serves a dual purpose. Firstly, it provides a clean and uncluttered canvas, placing the main content in focus. Secondly, it contributes to a modern and minimalist aesthetic, promoting a sense of simplicity and ease of use for the end user.
+
+Shades of purple have been carefully integrated into buttons and subtext, adding a touch of vibrancy and highlighting key interactive elements. This not only aids in drawing attention to important features but also introduces a visually engaging element to the overall design.
+
+In essence, the chosen color scheme aims to strike a balance between professionalism, user-friendly aesthetics, and a touch of vibrancy for an enriched visual experience.
 
 
+### Typography
+
+The font used throughout the application is Archivo.
+
+![Typography](documentation/design/font.jpeg)
+
+ARCHIVO was chosen for its modern and clean design, aligning with the application's focus on simplicity and user-friendly aesthetics. Its versatility and readability enhance the overall visual appeal, contributing to a cohesive and contemporary design language.
+
+
+### Wireframes
+
+ - ![Home page](documentation/wireframes/New%20Wireframe%201.png)
+ - ![Sign Up Page](documentation/wireframes/New%20Wireframe%202%20(1).png)
+ - ![Sign in page](documentation/wireframes/New%20Wireframe%202.png)
+ - ![Dashboard empty](documentation/wireframes/New%20Wireframe%203.png)
+ - ![Dashboard Filled](documentation/wireframes/New%20Wireframe%204.png)
+
+ These were the wireframes aimed for. However alot of the designs and features were changed or altered. The look was similar but there are features that were not accomplished due to lack of time. These will be added in the future. 
+ 
+ Check [FEATURES.md](FEATURES.md) for future features.
+
+### Flowchart
+
+![Simple Flowchart](documentation/wireframes/flowchart.png)
+
+This is a simple flowchart used. The flowcharts were created using [LucidChart](https://www.lucidchart.com/).
+
+
+## Information Architecture
+
+### Database
+In the project's initial phases, the database was established utilizing SQLite for its simplicity and lightweight nature. Subsequently, as the project evolved and required a more robust database management system, it was migrated to PostgreSQL to accommodate increased scalability and performance demands.
+
+### Entity-Relationship Diagram
 
