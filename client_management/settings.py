@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ["SECRET_KEY"]
 
 # Debug
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['client-management-2b59dd79d4aa.herokuapp.com', 'localhost', '127.0.0.1']
 

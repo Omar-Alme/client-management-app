@@ -7,7 +7,7 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 
 
-# Create your views here.
+
 def owner_profile(request):
     """A view that displays the profile page"""
     owner = get_object_or_404(Owner, user=request.user)
@@ -66,5 +66,4 @@ def edit_profile(request):
         form = OwnerProfileForm(instance=owner)
 
     return render(request, 'owners/edit_profile.html', {'form': form, 'owner': owner})
-
 
