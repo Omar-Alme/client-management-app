@@ -16,30 +16,26 @@
               <a class="btn btn-outline-primary btn-sm float-end" href="{% url 'clients:dashboard' %}">Back to Dashboard</a>
             </div>
             <div class="card-body">
-              {% if messages %}
-                {% for message in messages %}
-                  <p class="text-success">{{ message }}</p>
-                {% endfor %}
-              {% endif %}
+              
               <form method="post" action="{% url 'owner_profile' %}" enctype="multipart/form-data">
                 {% csrf_token %}
                  <!-- Business Name -->
                 <div class="mb-3">
                   <label class="form-label" for="inputBusinessName">Business Name</label>
                   <input class="form-control" id="inputBusinessName" type="text" placeholder="Enter your business name"
-                    value="{{ request.user.business_name }}" name="business_name" >
+                    value="{{ owner.business_name }}" name="business_name" >
                 </div>
                 <!-- First Name and Last Name in a single row -->
                 <div class="row mb-3">
                   <div class="col-md-6">
                     <label class="form-label" for="inputFirstName">First name</label>
                     <input class="form-control" id="inputFirstName" type="text" placeholder="Enter Your First Name"
-                      value="{{ request.user.first_name }}" name="first_name">
+                      value="{{ owner.first_name }}" name="first_name">
                   </div>
                   <div class="col-md-6">
                     <label class="form-label" for="inputLastName">Last name</label>
                     <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name"
-                      value="{{ request.user.last_name }}" name="last_name">
+                      value="{{ owner.last_name }}" name="last_name">
                   </div>
                 </div>
                 <!-- Email -->
@@ -57,7 +53,7 @@
                 <!-- Bio -->
                 <div class="mb-3">
                   <label class="form-label" for="inputBio">Bio</label>
-                  <textarea class="form-control" id="inputBio" placeholder="Enter your bio" name="bio">{{ request.user.owner.bio }}</textarea>
+                  <textarea class="form-control" id="inputBio" placeholder="Enter your bio" name="bio">{{ owner.bio }}</textarea>
                 </div>
                 <!-- Save Changes Button -->
                 <button class="btn btn-success btn-md" type="submit">Save Changes</button>

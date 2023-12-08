@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required 
 from django.contrib.auth.models import User
+from django.contrib import messages
 from django.views import generic
 from .models import Client
 from owners.models import Owner
@@ -11,17 +12,18 @@ from .forms import ClientForm
 def dashboard(request):
     """Retrieve the user's profile information"""
     user_clients = Client.objects.filter(user=request.user)
+    owner = request.user.owner
 
     context = {
         'clients': user_clients,
+        'owner': owner,
         }
 
-    return render(request, 'clients/dashboard.html', context)
+    return render(request, 'clients/dashboard.html', context, )
 
 
 def client_form(request):
-    """A view that displays the client form"""
-
+    """A view that displays the client form and saves data to the database"""
     form = ClientForm()
 
     if request.method == 'POST':
@@ -36,7 +38,6 @@ def client_form(request):
 
     clients = Client.objects.filter(user=request.user)
 
-
     context = {
         'form': form,
         'clients': clients,
@@ -45,12 +46,11 @@ def client_form(request):
 
 
 def edit_client(request, pk):
-    """A view that displays the client form"""
+    """A view that edits the client added in the page and saves it"""
+
     client = get_object_or_404(Client,pk=pk)
 
-    # form = ClientForm(instance=client)
     if request.method == 'POST':
-        # print('Printing Post' ,request.POST)
         form = ClientForm(request.POST, instance=client)
         if form.is_valid():
             form.save()
@@ -67,7 +67,8 @@ def edit_client(request, pk):
 
 
 def delete_client(request, pk):
-    """A view that displays the client form"""
+    """A view deletes the client added in the page"""
+    
     client = get_object_or_404(Client,pk=pk)
 
     if request.method == 'POST':

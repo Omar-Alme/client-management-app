@@ -25,12 +25,13 @@ body {
   padding-top: 200px;
 }
 
-span .cliental {
+.cliental {
   color: #5E5DF0;
   text-transform: uppercase;
+  font-weight: 800;
 }
 
-span .cliental:hover {
+.cliental:hover {
   color: #9696e0;
   text-decoration: none;
 }
@@ -94,7 +95,7 @@ span .cliental:hover {
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  padding-top: 280px;
+  padding-top: 180px;
 }
 
 .first-name-display {
@@ -148,6 +149,16 @@ span .cliental:hover {
 
 .addClientCard .fa {
   color: #5E5DF0;
+}
+
+.card-text strong {
+  font-weight: 700;
+  color: black;
+}
+
+.card-title {
+  text-transform: uppercase;
+  font-weight: 900;
 }
 
 

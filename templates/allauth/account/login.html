@@ -8,13 +8,19 @@
 {% endblock head_title %}
 
 {% block content %}
-       
 
     <div class="login-container">
         <div class="login-form">
             {% element h1 %}
-                {% trans "Sign In" %}
+            {% trans "Sign In" %}
             {% endelement %}
+             {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <div class="alert alert-danger" role="alert">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
             <p>
                 {% blocktrans %}If you have not created an account yet, then please <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
             </p>
@@ -37,7 +43,7 @@
                     {% endif %}
                 {% endslot %}
                 {% slot actions %}
-                    <button type="submit" tags="prominent,login">
+                    <button type="submit" class="btn btn-primary button-36" tags="prominent,login">
                         {% trans "Sign In" %}
                     </button>
                 {% endslot %}

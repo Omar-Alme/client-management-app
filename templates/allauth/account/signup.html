@@ -8,9 +8,16 @@
 {% endblock head_title %}
 
 {% block content %}
+<style>
+.password-description {
+    font-size: 11px;
+    color: #999;
+}
+
+</style>
 
 
-    <div class="signup-container">
+    <div class="signup-container mb-4">
         <div class="form-and-image-container">
             <div class="signup-form">
                 {% element h1 %}
@@ -24,20 +31,22 @@
                     {% slot body %}
                         {% csrf_token %}
                         <div class="signup-form-group">
-                            <label for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}</label>
-                            {{ form.first_name }}
-                        </div>
-                        <div class="signup-form-group">
-                            <label for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}</label>
-                            {{ form.last_name }}
-                        </div>
-                        <div class="signup-form-group">
                             <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
                             {{ form.email }}
                         </div>
                         <div class="signup-form-group">
                             <label for="{{ form.password1.id_for_label }}">{{ form.password1.label }}</label>
                             {{ form.password1 }}
+                        </div>
+                        <div class="password-description">
+                        <div class="align-left">
+                        <ul>
+                            <li>Your password can’t be too similar to your other personal information.</li>
+                            <li>Your password must contain at least 8 characters.</li>
+                            <li>Your password can’t be a commonly used password.</li>
+                            <li>Your password can’t be entirely numeric.</li>
+                        </ul>
+                        </div>
                         </div>
                         <div class="signup-form-group">
                             <label for="{{ form.password2.id_for_label }}">{{ form.password2.label }}</label>
@@ -50,7 +59,7 @@
                         {% endif %}
                     {% endslot %}
                     {% slot actions %}
-                        <button type="submit" tags="prominent,signup">
+                        <button class="signup" type="submit" tags="prominent,signup">
                             {% trans "Sign Up" %}
                         </button>
                     {% endslot %}

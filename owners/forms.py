@@ -7,9 +7,6 @@ from .models import Owner
 
 class CustomSignupForm(SignupForm):
     """Form for the owner signup page"""
-    first_name = forms.CharField(max_length=30, label='First Name', required=True, widget=forms.TextInput(attrs={'placeholder': 'First Name'}) )
-    last_name = forms.CharField(max_length=30, label='Last Name', required=True,  widget=forms.TextInput(attrs={'placeholder': 'Last Name'}) )
-
     
     def __init__(self, *args, **kwargs):
        super(CustomSignupForm, self).__init__(*args, **kwargs)
@@ -17,8 +14,6 @@ class CustomSignupForm(SignupForm):
 
     def save(self, request):
        user = super(CustomSignupForm, self).save(request)
-       user.first_name = self.cleaned_data['first_name']
-       user.last_name = self.cleaned_data['last_name']
        user.email = self.cleaned_data['email']
        user.save()
 
@@ -51,6 +46,8 @@ class SignupView(SignupView):
 
       login(self.request, self.user)
       return response
+
+
 
 
 

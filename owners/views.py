@@ -11,6 +11,14 @@ from django.contrib.auth.decorators import login_required
 def owner_profile(request):
     """A view that displays the profile page"""
     owner = get_object_or_404(Owner, user=request.user)
+
+    if request.method == 'POST':
+        form = OwnerProfileForm(request.POST, request.FILES, instance=owner)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your profile was successfully updated!')
+            return redirect('owner_profile')
+
     context = {
         'owner': owner,
     }
@@ -53,8 +61,10 @@ def edit_profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Your profile was successfully updated!')
-            return redirect('edit_profile')
+            return redirect('owner_profile')  # Redirect to the profile page
     else:
         form = OwnerProfileForm(instance=owner)
 
-    return render(request, 'owners/edit_profile.html', {'form': form})
+    return render(request, 'owners/edit_profile.html', {'form': form, 'owner': owner})
+
+
