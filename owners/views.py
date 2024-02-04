@@ -7,7 +7,6 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 
 
-
 def owner_profile(request):
     """A view that displays the profile page"""
     owner = get_object_or_404(Owner, user=request.user)
@@ -36,9 +35,11 @@ def save_profile(request):
     if request.method == 'POST':
         print(request)
         print(request.POST)
-        form = OwnerProfileForm(request.POST, request.FILES, instance=request.user.owner)
+        form = OwnerProfileForm(
+            request.POST, request.FILES, instance=request.user.owner
+            )
         print(request.user.owner)
-    
+
         if form.is_valid():
             print('form is valid')
             form.save()
@@ -61,9 +62,11 @@ def edit_profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Your profile was successfully updated!')
-            return redirect('owner_profile')  # Redirect to the profile page
+            return redirect('owner_profile')
     else:
         form = OwnerProfileForm(instance=owner)
 
-    return render(request, 'owners/edit_profile.html', {'form': form, 'owner': owner})
-
+    return render(
+        request,
+        'owners/edit_profile.html', {'form': form, 'owner': owner}
+        )

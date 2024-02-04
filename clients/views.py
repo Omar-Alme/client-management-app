@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.views import generic
@@ -48,7 +48,7 @@ def client_form(request):
 def edit_client(request, pk):
     """A view that edits the client added in the page and saves it"""
 
-    client = get_object_or_404(Client,pk=pk)
+    client = get_object_or_404(Client, pk=pk)
 
     if request.method == 'POST':
         form = ClientForm(request.POST, instance=client)
@@ -57,7 +57,6 @@ def edit_client(request, pk):
             return redirect('clients:dashboard')
     else:
         form = ClientForm(instance=client)
-
 
     context = {
         'form': form,
@@ -68,8 +67,7 @@ def edit_client(request, pk):
 
 def delete_client(request, pk):
     """A view deletes the client added in the page"""
-    
-    client = get_object_or_404(Client,pk=pk)
+    client = get_object_or_404(Client, pk=pk)
 
     if request.method == 'POST':
         client.delete()

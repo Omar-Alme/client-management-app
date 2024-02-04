@@ -13,9 +13,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ["SECRET_KEY"]
 
 # Debug
-DEBUG = False
+DEBUG = os.environ["DEBUG"] == "True"
 
-ALLOWED_HOSTS = ['client-management-2b59dd79d4aa.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = [
+        'client-management-2b59dd79d4aa.herokuapp.com',
+        'localhost',
+        '127.0.0.1'
+        ]
 
 # Application definition
 INSTALLED_APPS = [
@@ -62,8 +66,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR,'templates' ),
-            os.path.join(BASE_DIR,'templates', 'allauth' ),
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -87,7 +91,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
-    
         'APP': {
             'client_id': '',
             'secret': '',
@@ -125,11 +128,11 @@ if "DATABASE_URL" in os.environ:
 else:
     print("Postgres URL not found, using sqlite instead")
     DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
 
 
 # Password validation
