@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ["SECRET_KEY"]
 
 # Debug
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['client-management-2b59dd79d4aa.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -101,9 +101,9 @@ SITE_ID = 2
 
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/clients/dashboard/'
-LOGOUT_REDIRECT_URL = '/home/'
+LOGOUT_REDIRECT_URL = '/'
 
-ACCOUNT_LOGOUT_REDIRECT_URL = '/home/'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
