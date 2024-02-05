@@ -3,17 +3,16 @@
 
 {% block content %}
 {% comment %} Sign out message {% endcomment %}
-                {% if messages %}
-        {% for message in messages %}
-    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-  <strong>See you soon!</strong> {{ message }}
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-        {% endfor %}
-    </div>
-{% endif %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                <strong>See you soon!</strong> {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endfor %}
+        {% endif %}
 {% comment %} Home page {% endcomment %}
     <div class="home container ">
         <div class="row">
@@ -21,10 +20,10 @@
                 <div class="text mt-5">
                     <h1>Manage your <span class="cliental"> Cliental </span> efficiently</h1>
                     <p class="lead">Manage your Clients. Track Them. Serve them better.</p>
-                    <a href="{% url 'account_signup' %}" aria-label="Go to Sign Up">
-                    <button class="button-36">Get started 
-                    <i class="fas fa-arrow-right" style="transform: rotate(-30deg);"></i>
-                    </button>
+                    <a href="{% url 'account_signup' %}" aria-label="Go to Sign Up" aria-label="sign up">
+                        <button class="button-36" aria-label="sign up">Get started 
+                            <i class="fas fa-arrow-right" style="transform: rotate(-30deg);"></i>
+                        </button>
                     </a>
                 </div>
             </div>

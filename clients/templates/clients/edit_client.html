@@ -16,8 +16,8 @@
         </div>
         {{ form.as_p }}
         <div class="mb-3 d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary mr-3">Save Changes</button>
-            <a href="{% url 'clients:dashboard' %}" class="btn btn-secondary ms-2">Cancel</a>
+            <button type="submit" class="btn btn-primary mr-3" aria-label="Save changes">Save Changes</button>
+            <a href="{% url 'clients:dashboard' %}" class="btn btn-secondary ms-2" aria-label="cancel edit">Cancel</a>
         </div> 
     </form>
 </div>

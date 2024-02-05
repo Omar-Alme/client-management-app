@@ -4,13 +4,13 @@
 {% block content %}
 <div class="delete-container">
     <div class="container py-5">
-                <h1>Delete Client: {{ client.client_name}} </h1>
-                <p>Are you sure you want to delete the client "{{ client.client_name }}"?</p>
-                <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
-                    <a href="{% url 'clients:dashboard'  %}" class="btn btn-default py-5">Cancel</a>
-                </form>
-        </div>
+        <h1>Delete Client: {{ client.client_name}} </h1>
+        <p>Are you sure you want to delete the client "{{ client.client_name }}"?</p>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger" aria-label="Delete client">Yes, Delete</button>
+                <a href="{% url 'clients:dashboard'  %}" aria-label="Go back to dashboard" class="btn btn-default py-5">Cancel</a>
+            </form>
+    </div>
 </div>
 {% endblock content %}
