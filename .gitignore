@@ -7,6 +7,8 @@ __pycache__/
 node_modules/
 .github/
 cloudinary_python.txt
-venv/
+venv
 db.sqlite3
+staticfiles
+.gitignore
 ```
