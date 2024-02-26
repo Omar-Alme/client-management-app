@@ -30,6 +30,14 @@
     {% comment %} Link to css {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
+
+    <script>
+        // Hide messages after 2.5 seconds
+        setTimeout(function () {
+            document.getElementById('messages-notes-main').style.display = 'none';
+        }, 2500);
+    </script>
+
     <title>Cliently</title>
 </head>
 
@@ -84,6 +92,17 @@
         </nav>
     </header>
     <main class="container flex-grow-1">
+
+        {% comment %} Messages {% endcomment %}
+        {% if messages %}
+        <div class="message-container" id="messages-notes-main">
+            {% for message in messages %}
+            <div class="message-container__message">
+                <p class="message-container__message--text">{{ message }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
 
         {% block content %}
         {% endblock %}
