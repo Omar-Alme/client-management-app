@@ -8,17 +8,18 @@
             <h1 class="text-center mt-2">Edit Client {{ client.client_name }}</h1>
         </div>
     </div>
-{% comment %} Edit client form {% endcomment %}
+    {% comment %} Edit client form {% endcomment %}
     <form method="post" class="col-md-6 mx-auto">
         {% csrf_token %}
         <div class="mb-3 text-center">
-            <img src="{% static 'images/client.jpg' %}" alt="default" class="client-avatar img-fluid rounded-circle" width="100">
+            <img src="{% static 'images/client.jpg' %}" alt="default" class="client-avatar img-fluid rounded-circle"
+                width="100">
         </div>
         {{ form.as_p }}
         <div class="mb-3 d-flex justify-content-center">
             <button type="submit" class="btn btn-primary mr-3" aria-label="Save changes">Save Changes</button>
             <a href="{% url 'clients:dashboard' %}" class="btn btn-secondary ms-2" aria-label="cancel edit">Cancel</a>
-        </div> 
+        </div>
     </form>
 </div>
 {% endblock content %}
